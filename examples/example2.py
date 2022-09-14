@@ -5,7 +5,7 @@ import logging
 
 from telegram import InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
-from telegram_bot_pagination import InlineKeyboardPaginator
+from inline_keyboard_paginator import Button
 
 from data import character_pages
 

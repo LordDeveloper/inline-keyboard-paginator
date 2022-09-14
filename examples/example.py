@@ -4,7 +4,7 @@ import os
 from telebot import TeleBot
 from telebot.types import InlineKeyboardButton
 
-from telegram_bot_pagination import InlineKeyboardPaginator
+from inline_keyboard_paginator import Button
 from data import character_pages
 
 bot = TeleBot(os.getenv('BOT_TOKEN'))
