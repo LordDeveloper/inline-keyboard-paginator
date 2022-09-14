@@ -1,15 +1,11 @@
-# python-telegram-bot-pagination
+# Inline keyboard paginator
 
-[![Download Month](https://img.shields.io/pypi/v/python-telegram-bot-pagination.svg)](https://pypi.python.org/pypi/python-telegram-bot-pagination)
-[![Build Status](https://travis-ci.com/ksinn/python-telegram-bot-pagination.svg?branch=master)](https://travis-ci.com/ksinn/python-telegram-bot-pagination)
+[![Download Month](https://img.shields.io/pypi/v/inline-keyboard-paginator.svg)](https://pypi.python.org/pypi/inline-keyboard-paginator)
+[![Build Status](https://travis-ci.com/lorddeveloper/inline-keyboard-paginator.svg?branch=master)](https://travis-ci.com/lorddeveloper/inline-keyboard-paginator)
 
 Provide easy way for create number pagination with inline keyboard for telegram bot on python.
 
-[Example](https://github.com/ksinn/python-telegram-bot-pagination/blob/master/examples/example.py) with [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI)
-
-[Example](https://github.com/ksinn/python-telegram-bot-pagination/blob/master/examples/example2.py) with [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
-
-![](https://github.com/ksinn/python-telegram-bot-pagination/raw/master/examples/media/ex1.png)  ![](https://github.com/ksinn/python-telegram-bot-pagination/raw/master/examples/media/f1.jpg)
+![](https://github.com/lorddeveloper/inline-keyboard-paginator/raw/master/examples/media/ex1.png)  ![](https://github.com/lorddeveloper/inline-keyboard-paginator/raw/master/examples/media/f1.jpg)
 
 * [Installation.](#installation)
 * [Usage.](#usage)
@@ -18,7 +14,7 @@ Provide easy way for create number pagination with inline keyboard for telegram 
 
 #### Installation
 
-    pip install python-telegram-bot-pagination
+    pip install inline-keyboard-paginator
 
 #### Usage
         from telegram_bot_pagination import InlineKeyboardPaginator
@@ -69,7 +65,7 @@ For example:
 
 Result:
 
-![](https://github.com/ksinn/python-telegram-bot-pagination/raw/master/examples/media/m2.jpg)
+![](https://github.com/lorddeveloper/inline-keyboard-paginator/raw/master/examples/media/m2.jpg)
 
 #### Adding extra button
 For adding button line before and after pagination use methods:
@@ -89,7 +85,20 @@ For example:
 
 Result:
 
-![](https://github.com/ksinn/python-telegram-bot-pagination/raw/master/examples/media/ex1.png)
+![](https://github.com/lorddeveloper/inline-keyboard-paginator/raw/master/examples/media/ex1.png)
 
 
+#### Compatibility
+To be compatible with different libraries, you should use the following method:
 
+Example for [Telethon](https://docs.telethon.dev/):
+```python
+from inline_keyboard_paginator import Paginator
+from telethon import Button
+
+class TelethonPaginator(Paginator):
+    def _format(self, text, data):
+        return Button.inline(text, data)
+
+paginator = TelethonPaginator(10)
+```
